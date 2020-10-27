@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper {
-    background-color: pink;
+    /* background-color: pink; */
     width: 900px;
     height: 600px;
     margin: 120px auto 0;
@@ -38,6 +38,7 @@ body {
     float: left;
     height: 100%;
     width: calc(100% - 140px);
+    position: relative;
 }
 
 .carousel-images img {

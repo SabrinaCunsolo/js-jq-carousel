@@ -4,13 +4,44 @@
 
 $(document).ready(function() {
 // attivare al click la freccia sx
-    $ (".arrow-left i").click(function() {
-        // alert("click");
-
-    })
-
     $ (".arrow-right i").click(function() {
         // alert("click");
+        // devo creare variabile img
+        var imgVisualizzata = $("img.active");
+        // stesso procedimento con i cerchietti
+        var cerchi = $("span.active");
+        // per iniziare questo ciclo dovrò rimuovere l'active dalla prima immagine, assegnarla all'immagine successiva ecc
+        imgVisualizzata.removeClass("active");
+        cerchi.removeClass("active");
+        // se presente img successiva:
+        if ((imgVisualizzata.next("img").length) && (cerchi.next("span").length)) {
+            // devo assegnare l'active all'img successiva
+            imgVisualizzata.next("img").addClass("active");
+            cerchi.next("span").addClass("active");
+        } else  {
+        // se img non presente, riassegno l'active alla prima img
+            $(".carousel-images :first-child").addClass("active");
+            $(".cerchietti :first-child").addClass("active");
+        }
 
-    })
+    });
+
+    $ (".arrow-left i").click(function() {
+        // alert("click");
+        var imgVisualizzata = $("img.active");
+        var cerchi = $("span.active");
+
+        imgVisualizzata.removeClass("active");
+        cerchi.removeClass("active");
+
+        if ((imgVisualizzata.prev("img").length) && (cerchi.prev("span").length)) {
+
+            imgVisualizzata.prev("img").addClass("active");
+            cerchi.prev("span").addClass("active");
+        } else {
+            $(".carousel-images :last-of-type").addClass("active");
+            $(".cerchietti :last-of-type").addClass("active");
+        }
+
+    });
 });
